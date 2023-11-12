@@ -9,13 +9,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 	
 
-ENV PATH CONDA_DIR/bin:PATH
+ENV CONDA_DIR /opt/conda
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda$CONDA_PYTHON_VERSION-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
     echo 'export PATH=CONDA_DIR/bin:PATH' > /etc/profile.d/conda.sh && \
     /bin/bash /tmp/miniconda.sh -b -p $CONDA_DIR && \
     rm -rf /tmp/*
 	
-	
+ENV PATH=$CONDA_DIR/bin:$PATH
 RUN conda install -y mamba -c conda-forge
 
 RUN mamba env update --file ./environment.yml &&\
