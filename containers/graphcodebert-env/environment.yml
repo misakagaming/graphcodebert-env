@@ -476,4 +476,4 @@ dependencies:
       - transformers==4.35.0
       - tree-sitter==0.20.2
       - utils==1.0.1
-prefix: C:\Users\eraye\anaconda3
+prefix: /opt/conda
