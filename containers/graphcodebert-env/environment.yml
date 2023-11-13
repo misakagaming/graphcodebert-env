@@ -19,12 +19,13 @@ dependencies:
   - conda-verify
   - menuinst
   - console_shortcut
-  - powershell_shortcut
-  - torchtext
   - torchvision
-  - pytorch-cuda=12.1
   - pytorch
-  - torchaudio
   - transformers
-  - tree_sitter
+  - pip:
+    - torchaudio
+    - torchtext
+    - tree_sitter
+    - pytorch-cuda=12.1
+    - powershell_shortcut
 prefix: C:\Users\eraye\anaconda3
