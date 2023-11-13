@@ -1,6 +1,6 @@
 FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
-ARG CONDA_PYTHON_VERSION=3
+ARG CONDA_PYTHON_VERSION=3.10.9
 ARG CONDA_DIR=/opt/conda
 
 RUN apt-get update && \
