@@ -18,6 +18,8 @@ RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda$CONDA_PYTHON_VERS
 ENV PATH=$CONDA_DIR/bin:$PATH
 RUN conda install -y mamba -c conda-forge 
 
+COPY environment.yml .
+RUN conda env update -f ./environment.yml && conda clean -tipy
 	
 COPY entrypoint.sh .
 RUN chmod +x ./entrypoint.sh
