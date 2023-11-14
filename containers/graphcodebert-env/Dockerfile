@@ -15,8 +15,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
         python3-venv \
         python-is-python3 \
 		libstdc++6 \
-		libgcc_s\
-		libc \
+		gcc-multilib\
+		libc6 \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 
 RUN python3 -m pip install --upgrade pip && \
