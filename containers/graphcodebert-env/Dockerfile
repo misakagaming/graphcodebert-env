@@ -1,27 +1,29 @@
 FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
 
-ARG CONDA_PYTHON_VERSION=3
-ARG CONDA_DIR=/opt/conda
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git wget unzip bzip2 sudo build-essential ca-certificates && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-	
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+        git \
+        wget \
+        cmake \
+        ninja-build \
+        build-essential \
+        python3 \
+        python3-dev \
+        python3-pip \
+        python3-venv \
+        python-is-python3 \
+    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
 
-ENV CONDA_DIR /opt/conda
-RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda$CONDA_PYTHON_VERSION-latest-Linux-x86_64.sh -O /tmp/miniconda.sh && \
-    echo 'export PATH=CONDA_DIR/bin:PATH' > /etc/profile.d/conda.sh && \
-    /bin/bash /tmp/miniconda.sh -b -p $CONDA_DIR && \
-    rm -rf /tmp/*
-	
-ENV PATH=$CONDA_DIR/bin:$PATH
-RUN conda install -y mamba -c conda-forge 
+RUN python3 -m pip install --upgrade pip && \
+    python3 -m venv /opt/python3/venv/base
 
+COPY requirements.txt /opt/python3/venv/base/
+RUN /opt/python3/venv/base/bin/python3 -m pip install --no-cache-dir -r /opt/python3/venv/base/requirements.txt
 
-	
-COPY entrypoint.sh .
-RUN chmod +x ./entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Set entrypoint to bash
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
