@@ -2,7 +2,7 @@ name: base
 channels:
   - defaults
 dependencies:
-  - python=3.10
+  - python=3.10.9
   - torchvision
   - transformers
   - pip:
@@ -10,4 +10,3 @@ dependencies:
     - torchtext
     - tree_sitter
     - pytorch-cuda=12.1
-prefix: C:\Users\eraye\anaconda3
