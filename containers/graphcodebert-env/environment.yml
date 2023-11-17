@@ -1,12 +1,16 @@
 name: base
 channels:
+  - pytorch-nightly
+  - nvidia
   - defaults
 dependencies:
   - python=3.8
+  - pytorch-cuda=12.1
   - torchvision
-  - transformers
+  - torchaudio
+  - torchtext
+  - pip
   - pip:
-    - torchaudio
-    - torchtext
+    - transformers
     - tree_sitter
-    - pytorch-cuda=12.1
+    
