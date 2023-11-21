@@ -1,4 +1,3 @@
 #!/bin/bash
-source /opt/conda/bin/activate
-conda activate base
+source /opt/python3/venv/base/bin/activate
 exec "$@"
