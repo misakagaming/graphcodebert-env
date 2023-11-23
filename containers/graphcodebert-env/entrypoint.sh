@@ -1,7 +1,6 @@
 #!/bin/bash
 source /opt/python3/venv/base/bin/activate
 echo "nice"
-cd translation
 cd parser
 bash build.sh
 cd ..
