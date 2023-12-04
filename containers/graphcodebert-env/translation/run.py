@@ -52,12 +52,7 @@ from parser import (remove_comments_and_docstrings,
 from tree_sitter import Language, Parser
 os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 dfg_function={
-    'python':DFG_python,
     'java':DFG_java,
-    'ruby':DFG_ruby,
-    'go':DFG_go,
-    'php':DFG_php,
-    'javascript':DFG_javascript,
     'c_sharp':DFG_csharp,
 }
 
