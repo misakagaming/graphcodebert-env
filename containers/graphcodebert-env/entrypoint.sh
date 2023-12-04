@@ -12,7 +12,7 @@ beam_size=10
 source_length=320
 target_length=256
 output_dir=saved_models/$source-$target/
-train_file=data/train.java-cs.txt.$source,data/train.java-cs.txt.$target
+train_file=train_file=ort/yyy.gensrc/CYY1A121.gensrc,ort/yyy.java/CYY1A121.java
 dev_file=data/valid.java-cs.txt.$source,data/valid.java-cs.txt.$target
 epochs=100
 pretrained_model=microsoft/graphcodebert-base
