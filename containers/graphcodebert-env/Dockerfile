@@ -38,6 +38,8 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 
 COPY translation .
 
+COPY gen2java .
+
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
