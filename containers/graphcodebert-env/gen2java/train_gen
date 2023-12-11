@@ -34,13 +34,23 @@ SET loc_g_context dont_change_text text_150 TO "CYYY0111"
 SET SUBSCRIPT OF loc_group_context TO 2
 SET loc_g_context dont_change_text text_150 TO "CREATE"
 SET loc dont_change_return_codes 1_ok TO 1
-SET loc dont_change_return_codes n20_mandatory_import_missing TO -20
 SET loc dont_change_reason_codes 1_default TO 1
 SET loc dont_change_reason_codes 104_parent_type_key_attr_mand TO 104
 SET loc dont_change_reason_codes 105_parent_key_attr_mand TO 105
 SET loc dont_change_reason_codes 106_parent_search_attr_mand TO 106
 MOVE imp parent TO loc_imp parent
 USE cyyy0161_parent_instance_id_gen WHICH EXPORTS: Entity View loc_imp parent FROM Entity View exp parent
+USE cyyy9001_exception_hndlng_dflt WHICH EXPORTS: Work View exp_error iyy1_component FROM Work View exp_error iyy1_component
+SET loc dont_change_return_codes 1_ok TO 1
+SET loc dont_change_return_codes n1110_unauthorized_operation TO -1110
+SET loc dont_change_return_codes n1120_invalid_command TO -1120
+SET loc dont_change_reason_codes 1_default TO 1
+SET SUBSCRIPT OF loc_group_context TO 1
+SET SUBSCRIPT OF loc_group_context TO 2
+SET loc_g_context dont_change_text text_150 TO imp_command iyy1_component send_command
+USE cyy1a131_server_init WHICH EXPORTS: Work View loc_reference iyy1_server_data FROM Work View exp_reference iyy1_server_data
+MOVE loc_reference iyy1_server_data TO exp_reference iyy1_server_data
++->IF loc_error isc1_component return_code < loc dont_change_return_codes 1_ok  !  USE cyyy9831_mv_sc1_to_yy1 WHICH IMPORTS: Work View loc_error isc1_component TO Work View imp_error isc1_component WHICH EXPORTS: Work View exp_error iyy1_component FROM Work View exp_error iyy1_component +--
 
 
 
