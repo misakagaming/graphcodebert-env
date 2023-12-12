@@ -39,6 +39,7 @@ from torch.utils.data import DataLoader, Dataset, SequentialSampler, RandomSampl
 from torch.utils.data.distributed import DistributedSampler
 from transformers import (WEIGHTS_NAME, AdamW, get_linear_schedule_with_warmup,
                           RobertaConfig, RobertaModel, RobertaTokenizer)
+from transformers import RobertaTokenizerFast                          
 MODEL_CLASSES = {'roberta': (RobertaConfig, RobertaModel, RobertaTokenizer)}
 
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
@@ -389,17 +390,10 @@ def main():
         os.makedirs(args.output_dir)
         
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
-    config = config_class.from_pretrained(args.config_name)
-    tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name )
-    source = "SET SUBSCRIPT OF loc_group_context TO 1"
-    source2 = "public override void Serialize(ILittleEndianOutput out1){out1.WriteShort(field_1_vcenter);}"
-    encoding = tokenizer.encode(source)
-    print(tokenizer.convert_ids_to_tokens(encoding))
-    encoding = tokenizer.encode(source2)
-    print(tokenizer.convert_ids_to_tokens(encoding))
-"""    
+    config = RobertaConfig()
+    tokenizer = tokenizer = RobertaTokenizerFast.from_pretrained("tokenizer") 
     #budild model
-    encoder = model_class.from_pretrained(args.model_name_or_path,config=config)    
+    encoder = RobertaModel(config)    
     decoder_layer = nn.TransformerDecoderLayer(d_model=config.hidden_size, nhead=config.num_attention_heads)
     decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
     model=Seq2Seq(encoder=encoder,decoder=decoder,config=config,
@@ -626,7 +620,7 @@ def main():
             logger.info("  %s = %s "%("bleu-4",str(dev_bleu)))
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
             logger.info("  "+"*"*20) 
-"""            
+        
             
 if __name__ == "__main__":
     main()
