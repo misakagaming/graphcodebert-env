@@ -392,7 +392,10 @@ def main():
     config = config_class.from_pretrained(args.config_name)
     tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name )
     source = "SET SUBSCRIPT OF loc_group_context TO 1"
+    source2 = "public override void Serialize(ILittleEndianOutput out1){out1.WriteShort(field_1_vcenter);}"
     encoding = tokenizer.encode(source)
+    print(tokenizer.convert_ids_to_tokens(encoding))
+    encoding = tokenizer.encode(source2)
     print(tokenizer.convert_ids_to_tokens(encoding))
 """    
     #budild model
