@@ -391,7 +391,7 @@ def main():
         
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
     config = RobertaConfig()
-    tokenizer = tokenizer = RobertaTokenizerFast.from_pretrained("tokenizer") 
+    tokenizer = tokenizer = RobertaTokenizerFast.from_pretrained(".\tokenizer") 
     #budild model
     encoder = RobertaModel(config)    
     decoder_layer = nn.TransformerDecoderLayer(d_model=config.hidden_size, nhead=config.num_attention_heads)
