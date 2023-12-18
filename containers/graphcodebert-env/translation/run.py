@@ -620,7 +620,7 @@ def main():
             logger.info("  %s = %s "%("bleu-4",str(dev_bleu)))
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
             logger.info("  "+"*"*20) 
-            print predictions[0]
+            print(predictions[0])
         
             
 if __name__ == "__main__":
