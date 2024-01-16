@@ -390,10 +390,10 @@ def main():
         os.makedirs(args.output_dir)
         
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
-    config = RobertaConfig()
-    tokenizer = tokenizer = RobertaTokenizer.from_pretrained("./tokenizer") 
+    config = config_class.from_pretrained(args.config_name)
+    tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name )
     #budild model
-    encoder = RobertaModel(config)    
+    encoder = model_class.from_pretrained(args.model_name_or_path,config=config)    
     decoder_layer = nn.TransformerDecoderLayer(d_model=config.hidden_size, nhead=config.num_attention_heads)
     decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
     model=Seq2Seq(encoder=encoder,decoder=decoder,config=config,
