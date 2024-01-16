@@ -37,8 +37,7 @@ ENV PATH=$CONDA_DIR/bin:$PATH
 #    conda clean -tipy
 
 COPY translation .
-
-COPY ai_final .
+ .
 
 COPY gen2java .
 
