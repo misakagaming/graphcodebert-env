@@ -619,8 +619,9 @@ def main():
                                  os.path.join(args.output_dir, "test_{}.output".format(str(idx))).format(file)),2)
             logger.info("  %s = %s "%("bleu-4",str(dev_bleu)))
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
-            logger.info("  "+"*"*20) 
-            print(predictions[0])
+            logger.info("  "+"*"*20)
+            print(eval_examples[:5])
+            print(predictions[:5])
         
             
 if __name__ == "__main__":
