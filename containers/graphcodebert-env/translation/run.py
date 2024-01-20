@@ -586,7 +586,10 @@ def main():
             logger.info("Test file: {}".format(file))
             eval_examples = read_examples(file)
             eval_features = convert_examples_to_features(eval_examples, tokenizer, args,stage='test')
-            eval_data = TextDataset(eval_features,args) 
+            eval_data = TextDataset(eval_features,args)
+            
+            dfg_to_dfgs = [x.dfg_to_dfg for x in eval_features]
+            dfg_to_codes = [x.dfg_to_code for x in eval_features]
 
             # Calculate bleu
             eval_sampler = SequentialSampler(eval_data)
@@ -622,6 +625,8 @@ def main():
             logger.info("  "+"*"*20)
             print(eval_examples[:5])
             print(predictions[:5])
+            print(dfg_to_dfgs[:5])
+            print(dfg_to_codes[:5])
         
             
 if __name__ == "__main__":
