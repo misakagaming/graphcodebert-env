@@ -23,7 +23,7 @@ RUN python3 -m pip install --upgrade pip && \
     python3 -m venv /opt/python3/venv/base
 	
 RUN apt-get install software-properties-common && curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash \
-	&& apt-get install git-lfs && lfs install
+	&& apt-get install git-lfs && git lfs install
 
 COPY requirements.txt /opt/python3/venv/base/
 RUN /opt/python3/venv/base/bin/python3 -m pip install --no-cache-dir -r /opt/python3/venv/base/requirements.txt
