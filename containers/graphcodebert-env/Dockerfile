@@ -18,6 +18,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 		gcc-multilib\
 		libc6 \
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* 
+	
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 
 RUN apt-get install git-lfs && git lfs install	
 
