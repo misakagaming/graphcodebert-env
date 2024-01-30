@@ -391,7 +391,7 @@ def main():
         
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
     config = config_class.from_pretrained(args.config_name)
-    config.max_position_embeddings = 4096
+    config.max_position_embeddings = 2048
     tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name )
     #budild model
     encoder = model_class.from_pretrained(args.model_name_or_path,config=config, ignore_mismatched_sizes=True)    
