@@ -397,7 +397,7 @@ def main():
     encoder = model_class.from_pretrained(args.model_name_or_path,config=config, ignore_mismatched_sizes=True)"""
     config = config_class
     config.max_position_embeddings = 2048
-    tokenizer = tokenizer_class.from_pretrained(r"tokenizer/vocab.json")
+    tokenizer = tokenizer_class.from_pretrained(r"tokenizer")
     #budild model
     encoder = model_class.from_pretrained(args.model_name_or_path,config=config, ignore_mismatched_sizes=True)
     decoder_layer = nn.TransformerDecoderLayer(d_model=config.hidden_size, nhead=config.num_attention_heads)
