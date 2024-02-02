@@ -390,11 +390,16 @@ def main():
         os.makedirs(args.output_dir)
         
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
-    config = config_class.from_pretrained(args.config_name)
+    """config = config_class.from_pretrained(args.config_name)
     config.max_position_embeddings = 2048
     tokenizer = tokenizer_class.from_pretrained(args.tokenizer_name )
     #budild model
-    encoder = model_class.from_pretrained(args.model_name_or_path,config=config, ignore_mismatched_sizes=True)    
+    encoder = model_class.from_pretrained(args.model_name_or_path,config=config, ignore_mismatched_sizes=True)"""
+    config = config_class
+    config.max_position_embeddings = 2048
+    tokenizer = tokenizer_class.from_pretrained(r"tokenizer\vocab.json")
+    #budild model
+    encoder = model_class.from_pretrained(args.model_name_or_path,config=config, ignore_mismatched_sizes=True)
     decoder_layer = nn.TransformerDecoderLayer(d_model=config.hidden_size, nhead=config.num_attention_heads)
     decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
     model=Seq2Seq(encoder=encoder,decoder=decoder,config=config,
