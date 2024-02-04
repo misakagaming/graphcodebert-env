@@ -22,11 +22,6 @@ public void f_22020239(  )
 {func_0022020239_esc_flag = false;
 Globdata.GetStateData().SetCurrentABId( "0022020239" );
 Globdata.GetStateData().SetCurrentABName( "CYY1A121_SERVER_TERMINATION" );      
-Globdata.GetStateData().SetLastStatementNumber( "0000000005" );
-WLa.LocDontChangeReturnCodesQ1Ok = IntAttr.ValueOf((int)TIRD2DEC.Execute1(1, 0, TIRD2DEC.ROUND_NONE, 5));
-Globdata.GetStateData().SetLastStatementNumber( "0000000008" );
-WLa.LocImpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WIa.ImpErrorIyy1ComponentSeverityCode, 1);
-WLa.LocImpErrorIyy1ComponentRollbackIndicator = FixedStringAttr.ValueOf(WIa.ImpErrorIyy1ComponentRollbackIndicator, 1);
 WLa.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(WIa.ImpErrorIyy1ComponentOriginServid);
 WLa.LocImpErrorIyy1ComponentContextString = StringAttr.ValueOf(WIa.ImpErrorIyy1ComponentContextString, 512);
 WLa.LocImpErrorIyy1ComponentReturnCode = IntAttr.ValueOf(WIa.ImpErrorIyy1ComponentReturnCode);
@@ -46,14 +41,6 @@ WLa.LocErrorIyy1ComponentRollbackIndicator = FixedStringAttr.ValueOf(Cyyy9051Oa.
 WLa.LocErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentOriginServid);
 WLa.LocErrorIyy1ComponentContextString = StringAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentContextString, 512);
 WLa.LocErrorIyy1ComponentReturnCode = IntAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentReturnCode);
-WLa.LocErrorIyy1ComponentReasonCode = IntAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentReasonCode);
-WLa.LocErrorIyy1ComponentChecksum = FixedStringAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentChecksum, 15);
-WLa.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(Cyyy9051Oa.ExpIdentifiersIyy1ComponentOriginServid);
-WLa.LocImpErrorIyy1ComponentImplementationId = DoubleAttr.ValueOf(Cyyy9051Oa.ExpIdentifiersIyy1ComponentImplementationId);
-WLa.LocImpErrorIyy1ComponentSpecificationId = DoubleAttr.ValueOf(Cyyy9051Oa.ExpIdentifiersIyy1ComponentSpecificationId);
-Cyyy9051Oa.FreeInstance(  );
-Cyyy9051Oa = null;
-Globdata.GetStateData().SetLastStatementNumber( "0000000012" );
 if ( ((double) WLa.LocErrorIyy1ComponentReturnCode < (double) WLa.LocDontChangeReturnCodesQ1Ok) )
 {Globdata.GetStateData().SetLastStatementNumber( "0000000013" );
 WLa.LocImpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocErrorIyy1ComponentSeverityCode, 1);
@@ -99,91 +86,42 @@ Cyyy9041Oa = null;
 Globdata.GetStateData().SetLastStatementNumber( "0000000020" );
 if ( ((double) WLa.LocErrorIyy1ComponentReturnCode < (double) WLa.LocDontChangeReturnCodesQ1Ok) )
 {Globdata.GetStateData().SetLastStatementNumber( "0000000021" );
-WLa.LocImpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocErrorIyy1ComponentSeverityCode, 1);
-WLa.LocImpErrorIyy1ComponentRollbackIndicator = FixedStringAttr.ValueOf(WLa.LocErrorIyy1ComponentRollbackIndicator, 1);
-WLa.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(WLa.LocErrorIyy1ComponentOriginServid);
-WLa.LocImpErrorIyy1ComponentContextString = StringAttr.ValueOf(WLa.LocErrorIyy1ComponentContextString, 512);
-WLa.LocImpErrorIyy1ComponentReturnCode = IntAttr.ValueOf(WLa.LocErrorIyy1ComponentReturnCode);
-WLa.LocImpErrorIyy1ComponentReasonCode = IntAttr.ValueOf(WLa.LocErrorIyy1ComponentReasonCode);
 WLa.LocImpErrorIyy1ComponentChecksum = FixedStringAttr.ValueOf(WLa.LocErrorIyy1ComponentChecksum, 15);}
-      
-      
-      // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-      //    **************************************************************  
-      //    **                                                              
-      //    If message is not formatted, use the available data.            
-      //                                                                    
-      // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-      Globdata.GetStateData().SetLastStatementNumber( "0000000024" );
-      if ( CompareExit.CompareTo(WLa.LocErrorMsgIyy1ComponentMessageTx, Spaces) <= 0 )
-      {
-        Globdata.GetStateData().SetLastStatementNumber( "0000000025" );
-        WLa.LocErrorMsgIyy1ComponentMessageTx = StringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentContextString, 512);
-      }
-      
-      Globdata.GetStateData().SetLastStatementNumber( "0000000026" );
-      if ( CompareExit.CompareTo(WLa.LocErrorMsgIyy1ComponentSeverityCode, Spaces) <= 0 )
-      {
-        Globdata.GetStateData().SetLastStatementNumber( "0000000027" );
-        WLa.LocErrorMsgIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentSeverityCode, 1);
-      }
-      
-      
-      // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-      //    **************************************************************  
-      //    **                                                              
-      //    If error code is negative, set Severity = 'Error'               
-      //                                                                    
-      // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-      Globdata.GetStateData().SetLastStatementNumber( "0000000030" );
-      if ( ((double) WLa.LocImpErrorIyy1ComponentReturnCode < (double) WLa.LocDontChangeReturnCodesQ1Ok) )
-      {
-        Globdata.GetStateData().SetLastStatementNumber( "0000000031" );
-        WLa.LocImpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf("E", 1);
-        Globdata.GetStateData().SetLastStatementNumber( "0000000032" );
-        WLa.LocErrorMsgIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentSeverityCode, 1);
-      }
-      
-      
-      Globdata.GetStateData().SetLastStatementNumber( "0000000034" );
-      WOa.ExpErrorMsgIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocErrorMsgIyy1ComponentSeverityCode, 1);
-      WOa.ExpErrorMsgIyy1ComponentMessageTx = StringAttr.ValueOf(WLa.LocErrorMsgIyy1ComponentMessageTx, 512);
-      Globdata.GetStateData().SetLastStatementNumber( "0000000035" );
-      WOa.ExpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentSeverityCode, 1);
-      WOa.ExpErrorIyy1ComponentRollbackIndicator = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentRollbackIndicator, 1);
-      WOa.ExpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(WLa.LocImpErrorIyy1ComponentOriginServid);
-      WOa.ExpErrorIyy1ComponentContextString = StringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentContextString, 512);
-      WOa.ExpErrorIyy1ComponentReturnCode = IntAttr.ValueOf(WLa.LocImpErrorIyy1ComponentReturnCode);
-      WOa.ExpErrorIyy1ComponentReasonCode = IntAttr.ValueOf(WLa.LocImpErrorIyy1ComponentReasonCode);
-      WOa.ExpErrorIyy1ComponentChecksum = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentChecksum, 15);
-      
-      Globdata.GetStateData().SetLastStatementNumber( "0000000037" );
-      if ( ((double) WOa.ExpErrorIyy1ComponentReturnCode < (double) WLa.LocDontChangeReturnCodesQ1Ok) )
-      {
-        
-        Globdata.GetStateData().SetLastStatementNumber( "0000000039" );
-        Globdata.GetStateData().SetExitState( ex_StdReturnRb001 );
-        Globdata.GetStateData().SetExitInfoMsg( " " );
-        Globdata.GetErrorData().SetRollbackRequested( 'R' );
-        Globdata.GetStateData().SetExitMsgType( 'N' );
-        
-      }
-      else 
-      {
-        Globdata.GetStateData().SetLastSubStatementNumber( "1" );
-        {
-          
-          Globdata.GetStateData().SetLastStatementNumber( "0000000042" );
-          Globdata.GetStateData().SetExitState( ex_StdReturn002 );
-          Globdata.GetStateData().SetExitInfoMsg( " " );
-          Globdata.GetErrorData().SetRollbackRequested( ' ' );
-          Globdata.GetStateData().SetExitMsgType( 'N' );
-          
-        }
-      }
-      
-      return;
-    }
+Globdata.GetStateData().SetLastStatementNumber( "0000000024" );
+if ( CompareExit.CompareTo(WLa.LocErrorMsgIyy1ComponentMessageTx, Spaces) <= 0 )
+{Globdata.GetStateData().SetLastStatementNumber( "0000000025" );
+WLa.LocErrorMsgIyy1ComponentMessageTx = StringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentContextString, 512);}
+if ( ((double) WLa.LocImpErrorIyy1ComponentReturnCode < (double) WLa.LocDontChangeReturnCodesQ1Ok) )
+{Globdata.GetStateData().SetLastStatementNumber( "0000000031" );
+WLa.LocImpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf("E", 1);
+Globdata.GetStateData().SetLastStatementNumber( "0000000032" );
+WLa.LocErrorMsgIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentSeverityCode, 1);}
+Globdata.GetStateData().SetLastStatementNumber( "0000000034" );
+WOa.ExpErrorMsgIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocErrorMsgIyy1ComponentSeverityCode, 1);
+WOa.ExpErrorMsgIyy1ComponentMessageTx = StringAttr.ValueOf(WLa.LocErrorMsgIyy1ComponentMessageTx, 512);
+Globdata.GetStateData().SetLastStatementNumber( "0000000035" );
+WOa.ExpErrorIyy1ComponentSeverityCode = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentSeverityCode, 1);
+WOa.ExpErrorIyy1ComponentRollbackIndicator = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentRollbackIndicator, 1);
+WOa.ExpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(WLa.LocImpErrorIyy1ComponentOriginServid);
+WOa.ExpErrorIyy1ComponentContextString = StringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentContextString, 512);
+WOa.ExpErrorIyy1ComponentReturnCode = IntAttr.ValueOf(WLa.LocImpErrorIyy1ComponentReturnCode);
+WOa.ExpErrorIyy1ComponentReasonCode = IntAttr.ValueOf(WLa.LocImpErrorIyy1ComponentReasonCode);
+WOa.ExpErrorIyy1ComponentChecksum = FixedStringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentChecksum, 15);
+Globdata.GetStateData().SetLastStatementNumber( "0000000037" );
+if ( ((double) WOa.ExpErrorIyy1ComponentReturnCode < (double) WLa.LocDontChangeReturnCodesQ1Ok) )
+{Globdata.GetStateData().SetLastStatementNumber( "0000000039" );
+Globdata.GetStateData().SetExitState( ex_StdReturnRb001 );
+Globdata.GetStateData().SetExitInfoMsg( " " );
+Globdata.GetErrorData().SetRollbackRequested( 'R' );
+Globdata.GetStateData().SetExitMsgType( 'N' );}
+else 
+{Globdata.GetStateData().SetLastSubStatementNumber( "1" );
+{Globdata.GetStateData().SetLastStatementNumber( "0000000042" );
+Globdata.GetStateData().SetExitState( ex_StdReturn002 );
+Globdata.GetStateData().SetExitInfoMsg( " " );
+Globdata.GetErrorData().SetRollbackRequested( ' ' );
+Globdata.GetStateData().SetExitMsgType( 'N' );}}
+return;}
 
 
 
