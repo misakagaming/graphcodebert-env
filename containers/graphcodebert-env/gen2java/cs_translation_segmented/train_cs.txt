@@ -53,11 +53,6 @@ WLa.LocImpErrorIyy1ComponentChecksum = FixedStringAttr.ValueOf(WLa.LocErrorIyy1C
 Globdata.GetStateData().SetLastStatementNumber( "0000000016" );
 WLa.LocImpErrorIyy1ComponentDialectCd = FixedStringAttr.ValueOf(WIa.ImpDialectIyy1ComponentDialectCd, 2);
 Globdata.GetStateData().SetLastStatementNumber( "0000000019" );
-Cyyy9041Ia = (GEN.ORT.YYY.CYYY9041_IA)(IefRuntimeParm2.GetInstance( typeof(GEN.ORT.YYY.CYYY9041).Assembly, "GEN.ORT.YYY.CYYY9041_IA" ));
-Cyyy9041Oa = (GEN.ORT.YYY.CYYY9041_OA)(IefRuntimeParm2.GetInstance( typeof(GEN.ORT.YYY.CYYY9041).Assembly, "GEN.ORT.YYY.CYYY9041_OA" ));
-Cyyy9041Ia.ImpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(WLa.LocImpErrorIyy1ComponentOriginServid);
-Cyyy9041Ia.ImpErrorIyy1ComponentContextString = StringAttr.ValueOf(WLa.LocImpErrorIyy1ComponentContextString, 512);
-Cyyy9041Ia.ImpErrorIyy1ComponentReturnCode = IntAttr.ValueOf(WLa.LocImpErrorIyy1ComponentReturnCode);
 Cyyy9041Ia.ImpErrorIyy1ComponentReasonCode = IntAttr.ValueOf(WLa.LocImpErrorIyy1ComponentReasonCode);
 Cyyy9041Ia.ImpErrorIyy1ComponentImplementationId = DoubleAttr.ValueOf(WLa.LocImpErrorIyy1ComponentImplementationId);
 Cyyy9041Ia.ImpErrorIyy1ComponentSpecificationId = DoubleAttr.ValueOf(WLa.LocImpErrorIyy1ComponentSpecificationId);
@@ -122,6 +117,12 @@ Globdata.GetStateData().SetExitInfoMsg( " " );
 Globdata.GetErrorData().SetRollbackRequested( ' ' );
 Globdata.GetStateData().SetExitMsgType( 'N' );}}
 return;}
+WLa.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(WLa.LocErrorIyy1ComponentOriginServid);
+WLa.LocImpErrorIyy1ComponentReasonCode = IntAttr.ValueOf(WLa.LocErrorIyy1ComponentReasonCode);
+WLa.LocErrorIyy1ComponentReasonCode = IntAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentReasonCode);
+WLa.LocErrorIyy1ComponentChecksum = FixedStringAttr.ValueOf(Cyyy9051Oa.ExpErrorIyy1ComponentChecksum, 15);
+WLa.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.ValueOf(Cyyy9051Oa.ExpIdentifiersIyy1ComponentOriginServid);
+
 
 
 

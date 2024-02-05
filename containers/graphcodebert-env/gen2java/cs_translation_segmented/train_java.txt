@@ -53,11 +53,6 @@ w_la.LocImpErrorIyy1ComponentChecksum = FixedStringAttr.valueOf(w_la.LocErrorIyy
 globdata.getStateData().setLastStatementNumber( "0000000016" );
 f_0_trace(); if ( trace_ret_code != 8 ){w_la.LocImpErrorIyy1ComponentDialectCd = FixedStringAttr.valueOf(w_ia.ImpDialectIyy1ComponentDialectCd, (short)2);}
 globdata.getStateData().setLastStatementNumber( "0000000019" );
-f_0_trace(); if ( trace_ret_code != 8 ){cyyy9041_ia = (gen.ort.yyy.CYYY9041_IA)(iefRuntimeParm2.getInstance("gen.ort.yyy.CYYY9041_IA"));
-cyyy9041_oa = (gen.ort.yyy.CYYY9041_OA)(iefRuntimeParm2.getInstance("gen.ort.yyy.CYYY9041_OA"));
-cyyy9041_ia.ImpErrorIyy1ComponentOriginServid = DoubleAttr.valueOf(w_la.LocImpErrorIyy1ComponentOriginServid);
-cyyy9041_ia.ImpErrorIyy1ComponentContextString = StringAttr.valueOf(w_la.LocImpErrorIyy1ComponentContextString, (short)512);
-cyyy9041_ia.ImpErrorIyy1ComponentReturnCode = IntAttr.valueOf(w_la.LocImpErrorIyy1ComponentReturnCode);
 cyyy9041_ia.ImpErrorIyy1ComponentReasonCode = IntAttr.valueOf(w_la.LocImpErrorIyy1ComponentReasonCode);
 cyyy9041_ia.ImpErrorIyy1ComponentImplementationId = DoubleAttr.valueOf(w_la.LocImpErrorIyy1ComponentImplementationId);
 cyyy9041_ia.ImpErrorIyy1ComponentSpecificationId = DoubleAttr.valueOf(w_la.LocImpErrorIyy1ComponentSpecificationId);
@@ -122,6 +117,12 @@ globdata.getStateData().setExitInfoMsg( " " );
 globdata.getErrorData().setRollbackRequested( ' ' );
 globdata.getStateData().setExitMsgType( 'N' );}} ,}}
 }
+w_la.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.valueOf(w_la.LocErrorIyy1ComponentOriginServid);
+w_la.LocImpErrorIyy1ComponentReasonCode = IntAttr.valueOf(w_la.LocErrorIyy1ComponentReasonCode);
+w_la.LocErrorIyy1ComponentReasonCode = IntAttr.valueOf(cyyy9051_oa.ExpErrorIyy1ComponentReasonCode);
+w_la.LocErrorIyy1ComponentChecksum = FixedStringAttr.valueOf(cyyy9051_oa.ExpErrorIyy1ComponentChecksum, (short)15);
+w_la.LocImpErrorIyy1ComponentOriginServid = DoubleAttr.valueOf(cyyy9051_oa.ExpIdentifiersIyy1ComponentOriginServid);
+
 
 
 
