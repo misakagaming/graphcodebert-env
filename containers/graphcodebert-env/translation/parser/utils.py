@@ -1,6 +1,7 @@
 import re
 from io import StringIO
 import  tokenize
+
 def remove_comments_and_docstrings(source,lang):
     if lang in ['python']:
         """
@@ -41,7 +42,7 @@ def remove_comments_and_docstrings(source,lang):
             if x.strip()!="":
                 temp.append(x)
         return '\n'.join(temp)
-    elif lang in ['ruby']:
+    elif lang in ['ruby', 'coolgen']:   ## [TA] [MOD] Modified to include CoolGen
         return source
     else:
         def replacer(match):

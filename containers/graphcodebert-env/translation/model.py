@@ -3,7 +3,6 @@
 
 import torch
 import torch.nn as nn
-import torch
 from torch.autograd import Variable
 import copy
 class Seq2Seq(nn.Module):
@@ -84,7 +83,7 @@ class Seq2Seq(nn.Module):
         else:
             #Predict 
             preds=[]       
-            zero=torch.cuda.LongTensor(1).fill_(0)     
+            zero=torch.LongTensor(1).fill_(0)   ## [TA] [NOD] Modified due to version differences     
             for i in range(source_ids.shape[0]):
                 context=encoder_output[:,i:i+1]
                 context_mask=source_mask[i:i+1,:]
