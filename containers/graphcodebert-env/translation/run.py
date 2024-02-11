@@ -875,7 +875,8 @@ def main_m():
                 ## (TA) [MOD] Modified to output evaluation sources into separate files
                 testIdx = 1
                 for ref,gold in zip(p,eval_examples):
-                    with open(os.path.join(args.output_dir,"devout_{}.".format(str(testIdx))+args.target_ext),'w') as f, open(os.path.join(args.output_dir,"devgold_{}.".format(str(testIdx))+args.target_ext),'w') as f1:
+                    #with open(os.path.join(args.output_dir,"devout_{}.".format(str(testIdx))+args.target_ext),'w') as f, open(os.path.join(args.output_dir,"devgold_{}.".format(str(testIdx))+args.target_ext),'w') as f1:
+                    with open(os.path.join(args.output_dir,"dev.output"),'w') as f, open(os.path.join(args.output_dir,"dev.gold"),'w') as f1:
                         predictions.append(ref)
                         f.write(ref)
                         f.close
