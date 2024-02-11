@@ -51,7 +51,7 @@ from parser import (remove_comments_and_docstrings,
                    index_to_code_token,
                    tree_to_variable_index)
 from tree_sitter import Language, Parser
-os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
+
 dfg_function={
     'java':DFG_java,
     'c_sharp':DFG_csharp,
