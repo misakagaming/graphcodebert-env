@@ -104,7 +104,7 @@ params_training={
     '--eval_batch_size':32,
     '--learning_rate':1e-4,
     '--num_train_epochs':100, ##  2>&1| tee saved_models/java-cs/train.log',
-    '--no_cuda':True,
+    '--no_cuda':False,
 }
 
 params_test={
@@ -137,7 +137,7 @@ params_test={
     '--eval_batch_size':64,     ## 2>&1| tee saved_models/java-cs/test.log',
     '--learning_rate':1e-4,
     '--num_train_epochs':100,  ## 2>&1| tee saved_models/java-cs/train.log',
-    '--no_cuda':True,
+    '--no_cuda':False,
 }
 
 ## [TA] [ADD] END
