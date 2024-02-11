@@ -96,7 +96,7 @@ params_training={
     '--test_filename':'C:/Work/GraphCodeBert/translation/data/javacs/test.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/test.java-cs.txt.cs',
     '--test_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/test.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/test.java',
     ## '--output_dir':'C:/Work/GraphCodeBert/translation/saved_models/java-cs/',
-    '--output_dir':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/translation/saved_models/coolgen-java/',
+    '--output_dir':'saved_models/coolgen-java/',
     '--max_source_length':514,
     '--max_target_length':514,
     '--beam_size':10,
@@ -121,7 +121,7 @@ params_test={
     '--model_name_or_path':'microsoft/graphcodebert-base',
     '--tokenizer_name':'tokenizer_coolgen',
     '--config_name':'microsoft/graphcodebert-base',
-    '--load_model_path':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/translation/saved_models/coolgen-java/checkpoint-best-bleu/pytorch_model.bin',
+    '--load_model_path':'saved_models/coolgen-java/checkpoint-best-bleu/pytorch_model.bin',
     '--train_filename':'C:/Work/GraphCodeBert/translation/data/javacs/train.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/train.java-cs.txt.cs',
     '--train_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/train.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/train.java',
     '--dev_filename':'C:/Work/GraphCodeBert/translation/data/javacs/valid.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/valid.java-cs.txt.cs',
@@ -668,7 +668,7 @@ def main_m():
     logger.info(args)
 
     # Setup CUDA, GPU
-    device = torch.device("cuda" if torch.cuda.is_available() and (not args.no_cuda) else "cpu")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     args.n_gpu = torch.cuda.device_count()
     args.device = device
     
