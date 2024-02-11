@@ -38,7 +38,11 @@ tokenizer.train(files=paths, vocab_size=50265, min_frequency=2,
 #Save the Tokenizer to disk
 tokenizer.save_model(r"C:\Users\eraye\Desktop\graphcodebert-env\containers\graphcodebert-env\translation\tokenizer_segmented")
 
-paths = [str(x) for x in Path(r"C:\Users\eraye\Desktop\graphcodebert-env\containers\graphcodebert-env\gen2java").glob("*.txt")]
+paths = [str(x) for x in Path(r"C:\Users\eraye\Desktop\graphcodebert-env\containers\graphcodebert-env\gen2java\Training\train.coolgen")
+         .glob("*.gensrc")]
+
+for x in Path(r"C:\Users\eraye\Desktop\graphcodebert-env\containers\graphcodebert-env\gen2java\Training\train.java").glob("*.java"):
+    paths.append(str(x))
 
 # Initialize a tokenizer
 tokenizer = ByteLevelBPETokenizer(lowercase=True)
