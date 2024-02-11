@@ -2,7 +2,7 @@
 # Licensed under the MIT license.
 
 from tree_sitter import Language, Parser
-from parser.utils import (remove_comments_and_docstrings,
+from utils import (remove_comments_and_docstrings,
                    tree_to_token_index,
                    index_to_code_token,
                    tree_to_variable_index)
@@ -1183,7 +1183,7 @@ def DFG_javascript(root_node,index_to_code,states):
 ## (TA) [ADDED] Added to create CoolGen specific DFG
 
 def DFG_coolgen(root_node,index_to_code,states):
-    assignment=['set_statement','move_statement']
+    assignment=['set_statement','move_statement','initialize_statement']
     if_statement=['if_statement', 'elseif_statement']
     for_statement=['for_statement']
     while_statement=['while_statement', 'repeat_statement']
