@@ -47,10 +47,11 @@ logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(messa
                     level = logging.INFO)
 
 ## (TA) [MOD] Modified to include CoolGen DFG function
-from DFG import DFG_python,DFG_java,DFG_ruby,DFG_go,DFG_php,DFG_javascript,DFG_csharp,\
+
+from parser import DFG_python,DFG_java,DFG_ruby,DFG_go,DFG_php,DFG_javascript,DFG_csharp,\
     DFG_coolgen
 ## [TA] [MOD] END
-from utils import (remove_comments_and_docstrings,
+from parser import (remove_comments_and_docstrings,
                    tree_to_token_index,
                    index_to_code_token,
                    tree_to_variable_index)
@@ -84,18 +85,18 @@ params_training={
     ## '--target_lang':'c_sharp',
     ## '--source_ext':'java',
     ## '--target_ext':'cs',
-    '--model_name_or_path':'C:/Work/GraphCodeBert/translation/graphcodebert-base',
-    '--tokenizer_name':'C:/Work/GraphCodeBert/translation/graphcodebert-base',
-    '--config_name':'C:/Work/GraphCodeBert/translation/graphcodebert-base',
+    '--model_name_or_path':'microsoft/graphcodebert-base',
+    '--tokenizer_name':'tokenizer_coolgen',
+    '--config_name':'microsoft/graphcodebert-base',
     '--load_model_path':None,
     '--train_filename':'C:/Work/GraphCodeBert/translation/data/javacs/train.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/train.java-cs.txt.cs',
-    '--train_directories':'C:/Work/GraphCodeBert/translation/data/train.coolgen,C:/Work/GraphCodeBert/translation/data/train.java',
+    '--train_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/train.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/train.java',
     '--dev_filename':'C:/Work/GraphCodeBert/translation/data/javacs/valid.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/valid.java-cs.txt.cs',
-    '--dev_directories':'C:/Work/GraphCodeBert/translation/data/valid.coolgen,C:/Work/GraphCodeBert/translation/data/valid.java',
+    '--dev_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/valid.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/valid.java',
     '--test_filename':'C:/Work/GraphCodeBert/translation/data/javacs/test.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/test.java-cs.txt.cs',
-    '--test_directories':'C:/Work/GraphCodeBert/translation/data/test.coolgen,C:/Work/GraphCodeBert/translation/data/test.java',
+    '--test_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/test.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/test.java',
     ## '--output_dir':'C:/Work/GraphCodeBert/translation/saved_models/java-cs/',
-    '--output_dir':'C:/Work/GraphCodeBert/translation/saved_models/coolgen-java/',
+    '--output_dir':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/translation/saved_models/coolgen-java/',
     '--max_source_length':514,
     '--max_target_length':514,
     '--beam_size':10,
@@ -117,18 +118,18 @@ params_test={
     '--target_ext':'java',
 ##    '--source_lang':'java',
 ##    '--target_lang':'c_sharp',
-    '--model_name_or_path':'C:/Work/GraphCodeBert/translation/graphcodebert-base',
-    '--tokenizer_name':'C:/Work/GraphCodeBert/translation/graphcodebert-base',
-    '--config_name':'C:/Work/GraphCodeBert/translation/graphcodebert-base',
-    '--load_model_path':'C:/Work/GraphCodeBert/translation/saved_models/java-cs/checkpoint-best-bleu/pytorch_model.bin',
+    '--model_name_or_path':'microsoft/graphcodebert-base',
+    '--tokenizer_name':'tokenizer_coolgen',
+    '--config_name':'microsoft/graphcodebert-base',
+    '--load_model_path':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/translation/saved_models/coolgen-java/checkpoint-best-bleu/pytorch_model.bin',
     '--train_filename':'C:/Work/GraphCodeBert/translation/data/javacs/train.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/train.java-cs.txt.cs',
-    '--train_directories':'C:/Work/GraphCodeBert/translation/data/train.coolgen,C:/Work/GraphCodeBert/translation/data/train.java',
+    '--train_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/train.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/train.java',
     '--dev_filename':'C:/Work/GraphCodeBert/translation/data/javacs/valid.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/valid.java-cs.txt.cs',
-    '--dev_directories':'C:/Work/GraphCodeBert/translation/data/valid.coolgen,C:/Work/GraphCodeBert/translation/data/valid.java',
+    '--dev_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/valid.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/valid.java',
     '--test_filename':'C:/Work/GraphCodeBert/translation/data/javacs/test.java-cs.txt.java,C:/Work/GraphCodeBert/translation/data/javacs/test.java-cs.txt.cs',
-    '--test_directories':'C:/Work/GraphCodeBert/translation/data/test.coolgen,C:/Work/GraphCodeBert/translation/data/test.java',
+    '--test_directories':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/test.coolgen,C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/gen2java/Training/test.java',
     ## '--output_dir':'C:/Work/GraphCodeBert/translation/saved_models/java-cs/',
-    '--output_dir':'C:/Work/GraphCodeBert/translation/saved_models/coolgen-java/',
+    '--output_dir':'C:/Users/eraye/Desktop/graphcodebert-env/containers/graphcodebert-env/translation/saved_models/coolgen-java/',
     '--max_source_length':514,
     '--max_target_length':514,
     '--beam_size':10,
@@ -972,5 +973,5 @@ def main_m():
             logger.info("  "+"*"*20)   
             
 if __name__ == "__main__":
-    main()
+    main_m()
 
