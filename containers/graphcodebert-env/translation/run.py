@@ -692,7 +692,7 @@ def main_m():
                   sos_id=tokenizer.cls_token_id,eos_id=tokenizer.sep_token_id)
     
     ## (TA) [ADD] Added to optimize cuda memory
-    torch.cuda.empty_cache()
+    #torch.cuda.empty_cache()
     ## [TA] [ADD] END
     
     if args.load_model_path is not None:
