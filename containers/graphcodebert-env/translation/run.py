@@ -70,7 +70,7 @@ dfg_function={
 
 ## (TA) [ADDED] Added to block of constants to bypass command line arguments, added new ones
 
-FLAG_MODE = sys.argv[1]  ## 1 i for training 2 for test
+FLAG_MODE = 1  ## 1 i for training 2 for test
 
 params_training={
     '--do_train':True,
@@ -619,11 +619,11 @@ def main_m():
                         help="The maximum total target sequence length after tokenization. Sequences longer "
                              "than this will be truncated, sequences shorter will be padded.")
     
-    parser.add_argument("--do_train", default=argset['--do_train'], action='store_true',
+    parser.add_argument("--do_train", action='store_true',
                         help="Whether to run training.")
-    parser.add_argument("--do_eval", default=argset['--do_eval'], action='store_true',
+    parser.add_argument("--do_eval", action='store_true',
                         help="Whether to run eval on the dev set.")
-    parser.add_argument("--do_test", default=argset['--do_test'], action='store_true',
+    parser.add_argument("--do_test", action='store_true',
                         help="Whether to run eval on the dev set.")
     parser.add_argument("--do_lower_case", action='store_true',
                         help="Set this flag if you are using an uncased model.")
