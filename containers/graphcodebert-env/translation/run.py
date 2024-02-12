@@ -1011,6 +1011,7 @@ def main_m():
             else:
                 eval_examples = read_examples(args.source_lang, file)
             ## [TA] [MOD] END
+            print("number of examples: " + str(eval_examples))
             for x in eval_examples:
                 print(str(x.source) + " " + str(x.target))
             eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='test')
