@@ -1040,7 +1040,8 @@ def main_m():
             ## (TA) [MOD] Modified to output individiual predicted source into a separate file
             testIdx = 1
             for ref,gold in zip(p,eval_examples):
-                with open(os.path.join(args.output_dir,"test_{}.output.".format(str(testIdx))+args.target_ext),'w') as f, open(os.path.join(args.output_dir,"test_{}.gold.".format(str(testIdx))+args.target_ext),'w') as f1:
+                #with open(os.path.join(args.output_dir,"test_{}.output.".format(str(testIdx))+args.target_ext),'w') as f, open(os.path.join(args.output_dir,"test_{}.gold.".format(str(testIdx))+args.target_ext),'w') as f1:
+                with open(os.path.join(args.output_dir,"test_{}.output".format(str(idx))),'w') as f, open(os.path.join(args.output_dir,"test_{}.gold".format(str(idx))),'w') as f1:
                     predictions.append(ref)
                     f.write(ref)
                     f.close()
