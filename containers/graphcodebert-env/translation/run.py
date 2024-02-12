@@ -108,8 +108,8 @@ params_training={
 }
 
 params_test={
-    '--do_train':None,
-    '--do_eval':None,
+    '--do_train':False,
+    '--do_eval':False,
     '--do_test':True,
     '--model_type':'roberta',
     '--source_lang':'coolgen',
@@ -667,6 +667,11 @@ def main_m():
     args = parser.parse_args()
     logger.info(args)
 
+    if args.do_test == True:
+        argset = params_test
+    else:
+        argset = params_training    
+
     # Setup CUDA, GPU
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     args.n_gpu = torch.cuda.device_count()
@@ -972,7 +977,8 @@ def main_m():
             logger.info("  %s = %s "%("bleu-4",str(dev_bleu)))
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
             logger.info("  "+"*"*20)   
-            
+            for x in predictions:
+                print(x)
 if __name__ == "__main__":
     main_m()
 
