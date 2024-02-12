@@ -1012,7 +1012,7 @@ def main_m():
                 eval_examples = read_examples(args.source_lang, file)
             ## [TA] [MOD] END
             for x in eval_examples:
-                print(x)
+                print(str(x.source) + " " + str(x.target))
             eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='test')
             eval_data = TextDataset(eval_features, args) 
 
