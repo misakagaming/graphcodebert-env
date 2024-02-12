@@ -573,7 +573,7 @@ def main_m():
     
     parser = argparse.ArgumentParser()
     
-    #argset = params_training if FLAG_MODE == 1 else params_test
+    argset = params_training if FLAG_MODE == 1 else params_test
     
     ## (TA) [MOD] Modified all arguments to set the defaults from preset variable
     
@@ -690,6 +690,10 @@ def main_m():
                         help="The language of input")  
     parser.add_argument("--config_name", default="", type=str,
                         help="Pretrained config name or path if not the same as model_name")
+    parser.add_argument("--source_ext", default=argset['--source_ext'], type=str, 
+                        help="The source language file extension")  
+    parser.add_argument("--target_ext", default=argset['--target_ext'], type=str, 
+                        help="The target language file extension")  
     parser.add_argument("--tokenizer_name", default="", type=str,
                         help="Pretrained tokenizer name or path if not the same as model_name") 
     parser.add_argument("--max_source_length", default=64, type=int,
