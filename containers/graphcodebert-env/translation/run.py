@@ -1041,6 +1041,9 @@ def main_m():
             
             ## (TA) [MOD] Modified to output individiual predicted source into a separate file
             testIdx = 1
+            print("number of examples: " + str(len(eval_examples)))
+            for x in eval_examples:
+                print(str(x.source) + " " + str(x.target))
             for ref,gold in zip(p,eval_examples):
                 #with open(os.path.join(args.output_dir,"test_{}.output.".format(str(testIdx))+args.target_ext),'w') as f, open(os.path.join(args.output_dir,"test_{}.gold.".format(str(testIdx))+args.target_ext),'w') as f1:
                 with open(os.path.join(args.output_dir,"test_{}.output".format(str(idx))),'w') as f, open(os.path.join(args.output_dir,"test_{}.gold".format(str(idx))),'w') as f1:
@@ -1059,7 +1062,7 @@ def main_m():
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
             logger.info("  "+"*"*20) 
             for x in predictions:
-                    print(x)  
+                print(x)  
             
 if __name__ == "__main__":
     main_m()
