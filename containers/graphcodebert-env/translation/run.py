@@ -1055,9 +1055,10 @@ def main_m():
                                  os.path.join(args.output_dir, "test_{}.output".format(str(idx))).format(file)),2)
             logger.info("  %s = %s "%("bleu-4",str(dev_bleu)))
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
-            logger.info("  "+"*"*20)   
-            for x in predictions:
-                print(x)
+            logger.info("  "+"*"*20) 
+        for x in predictions:
+                print(x)  
+            
 if __name__ == "__main__":
     main_m()
 
