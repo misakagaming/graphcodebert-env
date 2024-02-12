@@ -70,7 +70,7 @@ dfg_function={
 
 ## (TA) [ADDED] Added to block of constants to bypass command line arguments, added new ones
 
-FLAG_MODE = 1  ## 1 i for training 2 for test
+FLAG_MODE = sys.argv[1]  ## 1 i for training 2 for test
 
 params_training={
     '--do_train':True,
