@@ -75,7 +75,7 @@ FLAG_MODE = 1  ## 1 i for training 2 for test
 params_training={
     '--do_train':True,
     '--do_eval':True,
-    '--do_test':False,
+    '--do_test':None,
     '--model_type':'roberta',
     '--source_lang':'coolgen',
     '--target_lang':'java',
@@ -108,8 +108,8 @@ params_training={
 }
 
 params_test={
-    '--do_train':False,
-    '--do_eval':False,
+    '--do_train':None,
+    '--do_eval':None,
     '--do_test':True,
     '--model_type':'roberta',
     '--source_lang':'coolgen',
@@ -578,7 +578,6 @@ def main_m():
     ## (TA) [MOD] Modified all arguments to set the defaults from preset variable
     
     ## Required parameters  
-    """
     parser.add_argument("--model_type", default=argset['--model_type'], type=str, required=False,
                         help="Model type: e.g. roberta")
     parser.add_argument("--model_name_or_path", default=argset['--model_name_or_path'], type=str, required=False,
@@ -744,7 +743,7 @@ def main_m():
                         help="For distributed training: local_rank")   
     parser.add_argument('--seed', type=int, default=42,
                         help="random seed for initialization")
-    
+    """
     
     # print arguments
     args = parser.parse_args()
