@@ -1,14 +1,4 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTDBEntityQuery;
-import com.j2cg.base.CTDBException;
-import com.j2cg.base.CTDBQuery;
-
 public class DYYY0131_TRAIN011 extends CTCoolGenCore {
-	protected reference_iyy1_server_data m_InputEntity001;
-	protected parent m_InputEntity002;
-
 	@Override
 	public void initialize(Object... inputs) {
 		setDBConnection(inputs);
@@ -31,8 +21,6 @@ public class DYYY0131_TRAIN011 extends CTCoolGenCore {
 				m_Record.pupdate_user_id = m_InputEntity001.userid;
 				m_Record.psearch_attr_text = m_InputEntity002.psearch_attr_text;
 				m_Record.pother_attr_text = m_InputEntity002.pother_attr_text;
-				m_Record.psearch_attr_text = m_InputEntity002.psearch_attr_text;
-				m_Record.ptype_tkey_attr_text = m_InputEntity002.ptype_tkey_attr_text;
 				
 				query.update(m_Record);
 				switch (query.getErrorCode())

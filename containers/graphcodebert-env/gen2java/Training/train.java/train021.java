@@ -1,17 +1,4 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTDBEntityQuery;
-import com.j2cg.base.CTDBException;
-import com.j2cg.base.CTDBQuery;
-
 public class DYYY0211_TRAIN021 extends CTCoolGenCore {
-	protected reference_iyy1_server_data m_InputEntity001;
-	protected child m_InputEntity002;
-
-	protected isc1_authorization_info m_LocalEntity001;
-	protected group_trans m_LocalEntity002;
-
 	@Override
 	public void initialize(Object... inputs) {
 		setDBConnection(inputs);
@@ -33,11 +20,7 @@ public class DYYY0211_TRAIN021 extends CTCoolGenCore {
 				m_Record.cinstance_id = m_InputEntity002.cinstance_id;
 				m_Record.creference_id = m_InputEntity001.reference_id;
 				m_Record.ccreate_user_id = m_InputEntity001.userid;
-				m_Record.cupdate_user_id = m_InputEntity001.userid;
 				m_Record.cparent_pkey_attr_text = m_InputEntity002.cparent_pkey_attr_text;
-				m_Record.ckey_attr_num = m_InputEntity002.ckey_attr_num;
-				m_Record.csearch_attr_text = m_InputEntity002.csearch_attr_text;
-				m_Record.cother_attr_text = m_InputEntity002.cother_attr_text;
 				
 				query.insert(m_Record);
 				switch (query.getErrorCode())
@@ -46,15 +29,8 @@ public class DYYY0211_TRAIN021 extends CTCoolGenCore {
 						moveMember(m_Record, m_Output01);
 						break;
 						
-					case CTDBQuery.DBERROR_ALREADYEXISTS:
+					default:
 					    m_Output02.return_code = m_LocalEntity001.n40_obj_create_failed;
-						m_Output02.reason_code = m_LocalEntity002.m_122_child_already_exist;
-						break;
-						
-					case CTDBQuery.DBERROR_PERMITTED_VALUE_VIOLATION:
-					    m_Output02.return_code = m_LocalEntity001.n40_obj_create_failed;
-						m_Output02.reason_code = m_LocalEntity002.m_123_child_attr_value_invalid;
-						break;
 				}
 				
 		} catch (CTDBException de) {

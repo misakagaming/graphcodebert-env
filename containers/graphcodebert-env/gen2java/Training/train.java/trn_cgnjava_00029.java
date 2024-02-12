@@ -1,19 +1,14 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTCoolGenGlobal;
-
 public class CYY1S011_TRAIN004 extends CTCoolGenCore {
 	
 	protected iyy1_component m_LocalEntity001;
 	protected group_context m_LocalEntity002;
 	protected iyy1_component m_LocalEntity003;
-  protected iyy1_server_data m_LocalEntity004;
-  protected isc1_authorization_info m_LocalEntity005;
-  protected iyy1_component m_LocalEntity006;
-  protected dont_change_return_codes m_LocalEntity007;
-  protected dont_change_reason_codes m_LocalEntity008;
-  protected g_context dont_change_text m_LocalEntity009;
+        protected iyy1_server_data m_LocalEntity004;
+        protected isc1_authorization_info m_LocalEntity005;
+        protected iyy1_component m_LocalEntity006;
+        protected dont_change_return_codes m_LocalEntity007;
+        protected dont_change_reason_codes m_LocalEntity008;
+        protected g_context dont_change_text m_LocalEntity009;
 	
 	@Override
 	public void initialize(Object... inputs) {

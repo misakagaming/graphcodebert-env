@@ -8,17 +8,12 @@
     21 !  !  SET ccreate_user_id TO imp_reference iyy1_server_data userid
     22 !  !  SET cupdate_user_id TO imp_reference iyy1_server_data userid
     23 !  !  SET cparent_pkey_attr_text TO imp child cparent_pkey_attr_text
-    24 !  !  SET ckey_attr_num TO imp child ckey_attr_num
-    25 !  !  SET csearch_attr_text TO imp child csearch_attr_text
-    26 !  !  SET cother_attr_text TO imp child cother_attr_text
     18 !  +> WHEN successful
     27 !  !  MOVE  child TO exp child
     18 !  +> WHEN already exists
     28 !  !  SET exp_error iyy1_component return_code TO loc dont_change_return_codes n40_obj_create_failed
-    29 !  !  SET exp_error iyy1_component reason_code TO loc dont_change_reason_codes 122_child_already_exist
     18 !  +> WHEN permitted value violation
     30 !  !  SET exp_error iyy1_component return_code TO loc dont_change_return_codes n40_obj_create_failed
-    31 !  !  SET exp_error iyy1_component reason_code TO loc dont_change_reason_codes 123_child_attr_value_invalid
     18 !  +--
        !
        +---

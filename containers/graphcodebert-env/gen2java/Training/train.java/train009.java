@@ -1,20 +1,4 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTBreakException;
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTCoolGenGlobal;
-import com.j2cg.base.CTDBEntityQuery;
-import com.j2cg.base.CTDBException;
-
 public class DYYY0151_TRAIN009 extends CTCoolGenCore {
-	protected parent m_LocalEntity001;
-	protected from_parent m_InputEntity002;
-	protected filter_start_parent m_InputEntity003;
-	protected filter_stop_parent m_InputEntity004;
-	protected filter_parent m_InputEntity005;
-	protected filter_iyy1_list m_InputEntity006;
-	protected iyy1_component m_InputEntity007;
-
 	@Override
 	public void initialize(Object... inputs) {
 		setDBConnection(inputs);
@@ -34,8 +18,6 @@ public class DYYY0151_TRAIN009 extends CTCoolGenCore {
 				query.addOrderField("pkey_attr_text", true);
 				query.addCondition(null, "pkey_attr_text", "<=", m_InputEntity002.pkey_attr_text);
 				query.addCondition("AND", "pkey_attr_text", ">=", m_InputEntity003.pkey_attr_text);
-				query.addCondition("AND", "pkey_attr_text", "<=", m_InputEntity004.pkey_attr_text);
-				query.addCondition("AND", "pkey_attr_text", "IS LIKE", m_InputEntity005.pkey_attr_text);
 				query.run();
 				
 				while (query.next()) {

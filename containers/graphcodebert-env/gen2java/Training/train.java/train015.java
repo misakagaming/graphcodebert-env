@@ -1,8 +1,3 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTCoolGenGlobal;
-
 public class CYY1S081_TRAIN015 extends CTCoolGenCore {
 	protected group_list m_LocalEntity001;
 	protected iyy1_list m_LocalEntity002;

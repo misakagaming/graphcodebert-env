@@ -1,7 +1,3 @@
-package com.j2cg.train;
-
-import com.j2cg.base.ICGenDataEntity;
-
 public class imp_error_iyy1_component implements ICGenDataEntity {
     public String severity_code;
     public String rollback_indicator;

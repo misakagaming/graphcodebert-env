@@ -6,8 +6,6 @@
     28 !  !        SORTED BY DESCENDING parent pkey_attr_text
     28 !  !        WHERE DESIRED parent pkey_attr_text <= imp_from parent pkey_attr_text
     28 !  !              AND  DESIRED parent pkey_attr_text >= imp_filter_start parent pkey_attr_text
-    28 !  !              AND  DESIRED parent pkey_attr_text <= imp_filter_stop parent pkey_attr_text
-    28 !  !              AND  DESIRED parent psearch_attr_text IS LIKE imp_filter parent psearch_attr_text
     29 !  !  +->IF SUBSCRIPT OF exp_group_list < imp_filter iyy1_list scroll_amount
     30 !  !  !  +->IF loc_filter iyy1_list scroll_type = "S"
     31 !  !  !  !  SET loc_filter iyy1_list scroll_type TO SPACES

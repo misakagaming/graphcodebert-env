@@ -1,19 +1,4 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTBreakException;
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTCoolGenGlobal;
-import com.j2cg.base.CTDBEntityQuery;
-import com.j2cg.base.CTDBException;
-
 public class DYYY0151_TRAIN018 extends CTCoolGenCore {
-	protected parent m_LocalEntity001;
-	protected from_parent m_InputEntity002;
-	protected filter_start_parent m_InputEntity003;
-	protected filter_stop_parent m_InputEntity004;
-	protected filter_parent m_InputEntity005;
-	protected filter_iyy1_list m_InputEntity006;
-	protected iyy1_component m_InputEntity007;
 
 	@Override
 	public void initialize(Object... inputs) {

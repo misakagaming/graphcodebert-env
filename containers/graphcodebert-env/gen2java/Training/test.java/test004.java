@@ -1,9 +1,3 @@
-package com.j2cg.train;
-
-import com.j2cg.base.CTCoolGenCore;
-import com.j2cg.base.CTDBEntityQuery;
-import com.j2cg.base.CTDBException;
-
 public class DYYY0121_TRAIN010 extends CTCoolGenCore {
 	protected parent m_InputEntity001;
 

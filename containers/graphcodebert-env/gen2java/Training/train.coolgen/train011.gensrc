@@ -7,7 +7,6 @@
     31 !  !  SET pupdate_user_id TO imp_reference iyy1_server_data userid
     32 !  !  SET psearch_attr_text TO imp parent psearch_attr_text
     33 !  !  SET pother_attr_text TO imp parent pother_attr_text
-    34 !  !  SET ptype_tkey_attr_text TO imp parent ptype_tkey_attr_text
     29 !  +> WHEN successful
     35 !  !  MOVE  parent TO exp parent
     29 !  +> WHEN not unique
