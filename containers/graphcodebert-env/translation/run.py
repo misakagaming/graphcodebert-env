@@ -1011,7 +1011,8 @@ def main_m():
             else:
                 eval_examples = read_examples(args.source_lang, file)
             ## [TA] [MOD] END
-            
+            for x in eval_examples:
+                print(x)
             eval_features = convert_examples_to_features(eval_examples, tokenizer, args, stage='test')
             eval_data = TextDataset(eval_features, args) 
 
@@ -1056,8 +1057,8 @@ def main_m():
             logger.info("  %s = %s "%("bleu-4",str(dev_bleu)))
             logger.info("  %s = %s "%("xMatch",str(round(np.mean(accs)*100,4))))
             logger.info("  "+"*"*20) 
-        for x in predictions:
-                print(x)  
+            for x in predictions:
+                    print(x)  
             
 if __name__ == "__main__":
     main_m()

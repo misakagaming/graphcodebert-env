@@ -1,0 +1,13 @@
+public class CYY1S011_TRAIN003 extends CTCoolGenCore {
+
+protected isc1_component m_LocalEntity001;
+protected isc1_component m_LocalEntity002;
+
+
+@Override
+public void initialize(Object... inputs) {
+}
+
+@Override
+public void execute(Object...outputs) {
+m_AuthorizationChorizationChorizationChorizationChoriz021_AuthorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationChorizationCheck.execute
