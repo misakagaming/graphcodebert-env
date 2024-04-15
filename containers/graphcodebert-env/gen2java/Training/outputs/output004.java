@@ -1,25 +1,21 @@
-public class CYY1S011_TRAIN004 extends CTCoolGenCore {
-
-protected iyy1_component m_LocalEntity001;
-protected dont_context m_LocalEntity002;
-protected iyy1_component m_LocalEntity003;
+public class DYYY0121_TRAIN010 extends CTCoolGenCore {
+protected parent m_InputEntity001;
 
 @Override
 public void initialize(Object... inputs) {
-
+setDBConnection(inputs);
+}
 
 @Override
-public void execute(Object...outputs) {
+public void execute(Object... outputs) {
 
-if (m_LocalEntity001.return_LocalEntity001.return_LocalEntity002.setSubscript(m_LocalEntity001.return_code = m_LocalEntity001.return_LocalEntity002.return_code = m_LocalEntity001.return_code
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
-}
+dont_change_return_codes m_LocalEntity001 = new dont_change_return_codes();
+dont_change_reason_codes m_LocalEntity002 = new dont_change_reason_codes();
+
+parent m_Output01 = (parent) outputs[0];
+error_iyy1_component m_Output02 = (error_iyy1_component) outputs[1];
+
+try {
+CTDBEntityQuery query = new CTDBEntityQuery(m_DBConnection, parent.class.getName());
+query.addCondition(null, "pkey_attr_text", "=", m
+package com.j2cg.train;

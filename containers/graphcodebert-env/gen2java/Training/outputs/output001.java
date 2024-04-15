@@ -1,20 +1,21 @@
-public class CYY1S011_TRAIN004 extends CTCoolGenCore {
+package com.j2cg.train;
 
-protected iyy1_component m_LocalEntity001;
-protected iyy1_component m_LocalEntity002;
-protected iyy1_component m_LocalEntity003;
+import com.j2cg.base.CTCoolGenCore;
+
+public class CYY1S011_TRAIN003 extends CTCoolGenCore {
+
+protected isc1_authorization_info m_LocalEntity001;
+protected group_trans m_LocalEntity002;
+
 @Override
 public void initialize(Object... inputs) {
-
+}
 
 @Override
 public void execute(Object...outputs) {
 
-if (m_LocalEntity001.return_LocalEntity001.return_LocalEntity002.setSubscript(m_LocalEntity001.return_code = m_LocalEntity001.return_LocalEntity002.getMember(m_LocalEntityQuery(m_option.setSubscript(m_Output01.getSubscript()+1);
-}
-}
-}
-}
-}
-}
-}
+isc1z021_o_authorization_check_s m_AuthorizationCheck = new isc1z021_o_authorization_check_s();
+m_AuthorizationCheck.initialize(m_LocalEntity001, m_LocalEntity002);
+isc1_authorization_info m_Out1 = new isc1_authorization_info();
+isc1_component m_Out2 = new isc1_component();
+m_AuthorizationC

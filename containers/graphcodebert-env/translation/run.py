@@ -39,8 +39,13 @@ from bleu import _bleu
 from torch.utils.data import DataLoader, Dataset, SequentialSampler, RandomSampler,TensorDataset
 from torch.utils.data.distributed import DistributedSampler
 from transformers import (WEIGHTS_NAME, AdamW, get_linear_schedule_with_warmup,
-                          RobertaConfig, RobertaModel, RobertaTokenizer)
-MODEL_CLASSES = {'roberta': (RobertaConfig, RobertaModel, RobertaTokenizer)}
+                          RobertaConfig, RobertaModel, RobertaTokenizer,
+                          BartConfig, BartForConditionalGeneration, BartTokenizer,
+                          T5Config, T5ForConditionalGeneration, T5Tokenizer)
+MODEL_CLASSES = {'roberta': (RobertaConfig, RobertaModel, RobertaTokenizer),
+                 't5': (T5Config, T5ForConditionalGeneration, T5Tokenizer),
+                 'codet5': (T5Config, T5ForConditionalGeneration, RobertaTokenizer),
+                 'bart': (BartConfig, BartForConditionalGeneration, BartTokenizer)}
 
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt = '%m/%d/%Y %H:%M:%S',
