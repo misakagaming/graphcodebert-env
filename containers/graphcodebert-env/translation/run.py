@@ -756,6 +756,10 @@ def main_m():
    
 
     # Setup CUDA, GPU
+    if torch.cuda.is_available():
+        print("we have cuda")
+    else:
+        print("we don't have cuda")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     args.n_gpu = torch.cuda.device_count()
     args.device = device
@@ -838,7 +842,12 @@ def main_m():
             for batch in bar:
                 batch = tuple(t.to(device) for t in batch)
                 source_ids,source_mask,position_idx,att_mask,target_ids,target_mask = batch
-                loss,_,_ = model(source_ids,source_mask,position_idx,att_mask,target_ids,target_mask)
+                if args.model_type == 'roberta':
+                    loss,_,_ = model(source_ids,source_mask,position_idx,att_mask,target_ids,target_mask)
+                else:
+                    outputs = model(input_ids=source_ids, attention_mask=source_mask,
+                                    labels=target_ids, decoder_attention_mask=target_mask)
+                    loss = outputs.loss
 
                 if args.n_gpu > 1:
                     loss = loss.mean() # mean() to average on multi-gpu.
@@ -893,9 +902,16 @@ def main_m():
                     batch = tuple(t.to(device) for t in batch)               
                     source_ids,source_mask,position_idx,att_mask,target_ids,target_mask = batch
                     with torch.no_grad():
-                        _,loss,num = model(source_ids,source_mask,position_idx,att_mask,target_ids,target_mask)     
-                    eval_loss += loss.sum().item()
-                    tokens_num += num.sum().item()
+                        if args.model_type == 'roberta':
+                            _,loss,num = model(source_ids,source_mask,position_idx,att_mask,target_ids,target_mask)
+                            eval_loss += loss.sum().item()
+                            tokens_num += num.sum().item()
+                        else:
+                            outputs = model(input_ids=source_ids, attention_mask=source_mask,
+                                    labels=target_ids, decoder_attention_mask=target_mask)
+                            loss = outputs.loss
+                            eval_loss += loss.sum().item()
+                            tokens_num += 1
                 #Pring loss of dev dataset    
                 model.train()
                 eval_loss = eval_loss / tokens_num
@@ -946,19 +962,33 @@ def main_m():
                 eval_sampler = SequentialSampler(eval_data)
                 eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.eval_batch_size,num_workers=4)
                 model.eval() 
+                pred_ids=[]
                 p=[]
-                for batch in eval_dataloader:
-                    batch = tuple(t.to(device) for t in batch)
-                    source_ids,source_mask,position_idx,att_mask,target_ids,target_mask = batch                 
+                for batch in tqdm(eval_dataloader, total=len(eval_dataloader), desc="Eval bleu for {} set".format('dev')):
+                                    
                     with torch.no_grad():
-                        preds = model(source_ids,source_mask,position_idx,att_mask)  
-                        for pred in preds:
-                            t=pred[0].cpu().numpy()
-                            t=list(t)
-                            if 0 in t:
-                                t=t[:t.index(0)]
-                            text = tokenizer.decode(t,clean_up_tokenization_spaces=False)
-                            p.append(text)
+                        if args.model_type == 'roberta':
+                            batch = tuple(t.to(device) for t in batch)
+                            source_ids,source_mask,position_idx,att_mask,target_ids,target_mask = batch 
+                            preds = model(source_ids=source_ids, source_mask=source_mask)
+
+                            top_preds = [pred[0].cpu().numpy() for pred in preds]
+                        else:
+                            source_ids = batch[0].to(args.device)
+                            source_mask = source_ids.ne(tokenizer.pad_token_id)
+                            preds = model.generate(source_ids,
+                                                   attention_mask=source_mask,
+                                                   use_cache=True,
+                                                   num_beams=args.beam_size,
+                                                   max_length=args.max_target_length)
+                            top_preds = list(preds.cpu().numpy())
+                        pred_ids.extend(top_preds)
+                        for id in pred_ids:
+                            id = list(id)
+                            for i in id:
+                                if i > 1099:
+                                    id[id.index(i)] = 1099
+                            p.append(tokenizer.decode(id, skip_special_tokens=True, clean_up_tokenization_spaces=False))
                 model.train()
                 predictions=[]
                 accs=[]
@@ -1030,19 +1060,33 @@ def main_m():
             eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.eval_batch_size,num_workers=4)
 
             model.eval() 
+            pred_ids=[]
             p=[]
-            for batch in tqdm(eval_dataloader,total=len(eval_dataloader)):
-                batch = tuple(t.to(device) for t in batch)
-                source_ids,source_mask,position_idx,att_mask,target_ids,target_mask = batch                    
+            for batch in tqdm(eval_dataloader, total=len(eval_dataloader), desc="Eval bleu for {} set".format('dev')):
+                                
                 with torch.no_grad():
-                    preds = model(source_ids,source_mask,position_idx,att_mask)  
-                    for pred in preds:
-                        t=pred[0].cpu().numpy()
-                        t=list(t)
-                        if 0 in t:
-                            t=t[:t.index(0)]
-                        text = tokenizer.decode(t,clean_up_tokenization_spaces=False)
-                        p.append(text)
+                    if args.model_type == 'roberta':
+                        batch = tuple(t.to(device) for t in batch)
+                        source_ids,source_mask,position_idx,att_mask,target_ids,target_mask = batch 
+                        preds = model(source_ids=source_ids, source_mask=source_mask)
+
+                        top_preds = [pred[0].cpu().numpy() for pred in preds]
+                    else:
+                        source_ids = batch[0].to(args.device)
+                        source_mask = source_ids.ne(tokenizer.pad_token_id)
+                        preds = model.generate(source_ids,
+                                               attention_mask=source_mask,
+                                               use_cache=True,
+                                               num_beams=args.beam_size,
+                                               max_length=args.max_target_length)
+                        top_preds = list(preds.cpu().numpy())
+                    pred_ids.extend(top_preds)
+                    for id in pred_ids:
+                        id = list(id)
+                        for i in id:
+                            if i > 1099:
+                                id[id.index(i)] = 1099
+                        p.append(tokenizer.decode(id, skip_special_tokens=True, clean_up_tokenization_spaces=False))
             model.train()
             predictions=[]
             accs=[]
